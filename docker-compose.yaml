@@ -1,0 +1,30 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.17
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: TestPassW0rd
+      MYSQL_DATABASE: cake_cms
+      MYSQL_USER: cms
+      MYSQL_PASSWORD: "TestPass"
+    ports:
+      - "3306:3306"
+    networks:
+      - myapp-net
+ 
+  myapp:
+    image: php-cake:0.17 
+    ports:
+      - "8765:8765"
+    env_file:
+      - ./.env-app
+    networks:
+      - myapp-net
+
+volumes:
+  mysql_data:
+    
+networks:
+  myapp-net:
