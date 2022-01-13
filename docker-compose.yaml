@@ -6,8 +6,8 @@ services:
       - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: TestPassW0rd
-      MYSQL_DATABASE: cake_cms
-      MYSQL_USER: cms
+      MYSQL_DATABASE: myapp
+      MYSQL_USER: testuser
       MYSQL_PASSWORD: "TestPass"
     ports:
       - "3306:3306"
